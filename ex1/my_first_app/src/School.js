@@ -1,6 +1,6 @@
 import React from 'react';
 import Student from './Student'
-
+import styles from './School.module.css'
 
 export class School extends React.Component {
     constructor(props){
@@ -14,7 +14,7 @@ export class School extends React.Component {
     
           return (
               <div>
-            <h2 id="time">It is {this.state.date.toLocaleTimeString()}.</h2>
+            <h2 id="time" className={styles.Mh1}>It is {this.state.date.toLocaleTimeString()}.</h2>
            <ul>
            {this.props.list.map((s)=>{
              return<Student detials={s} key={s.id}/>})}
