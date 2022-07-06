@@ -5,21 +5,21 @@ export default class List extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            items: props.items
-        }
+       
     }
 
     getItems() {
-        this.state.items.map((item, index) => { return (<Item details={item} index={index} />) })
-    }
+        
+        let itemsList=[];
+        this.props.items.forEach((item, index) => { itemsList.push( <Item details={item} key={index} index={index} />) })
+    return itemsList
+    } 
 
     render() {
-        var items = this.state.items.map(item => { return (<Item details={item} />) })
 
         return (
             <div className="fixed">
-            <ul className="list-group"> {items} </ul>
+            <ul className="list-group"> {this.getItems()} </ul>
             </div>
         );
     }

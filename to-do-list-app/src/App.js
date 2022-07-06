@@ -5,18 +5,30 @@ import Header from './components/Header';
 import List from './components/List/List';
 import ToDoForm from './components/Form/ToDoForm';
 
-var todoItems = [];
-todoItems.push({ index: 1, value: "learn react", done: false });
-todoItems.push({ index: 2, value: "Go shopping", done: true });
-todoItems.push({ index: 3, value: "buy flowers", done: true });
+
 class ToDoApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items:props.items
+    }
+    this.addItem = this.addItem.bind(this)
+  }
+
+
+  addItem(newItem) {    
+    let { items } = this.state;
+    items.push({ index: items.length, value: newItem });
+    this.setState({ items })
+
+  }
 
   render() {
     return (
       <div id="main">
-        <Header/>
-        <ToDoForm/>
-        <List items={todoItems} />
+        <Header />
+        <ToDoForm onAddItem={this.addItem} />
+        <List items={this.props.items} />
       </div>
 
     )

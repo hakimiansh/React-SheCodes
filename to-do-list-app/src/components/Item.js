@@ -6,11 +6,10 @@ export default class Item extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
-            <div>
-                <input type="checkbox" checked={this.props.details.done} onChange={this.changeStatus} />
-                {this.props.details.value}
+            <div key={this.props.index} >
+                <input type="checkbox" key={this.props.index} checked={this.props.details.done} onChange={this.changeStatus} />
+                <span >{this.props.details.value}</span>
             </div>
         )
     }
