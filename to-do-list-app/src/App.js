@@ -5,7 +5,7 @@ import Header from './components/Header';
 import List from './components/List/List';
 import ToDoForm from './components/Form/ToDoForm';
 
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 class ToDoApp extends React.Component {
   constructor(props) {
     super(props);

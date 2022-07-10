@@ -9,6 +9,7 @@ export default class List extends Component {
             items: props.items
         }
         this.changeStatus = this.changeStatus.bind(this);
+        this.removeItem = this.removeItem.bind(this);
     }
 
     changeStatus(itemId) {
@@ -16,9 +17,14 @@ export default class List extends Component {
         this.setState(this.state.items)
     }
 
+    removeItem(itemId) {
+        this.state.items.splice(itemId,1)
+        this.setState(this.state.items)
+    }
+
     getItems() {
         let itemsList = [];
-        this.state.items.forEach((item, index) => { itemsList.push(<Item details={item} key={index} index={index} onChangeStatus={this.changeStatus} />) })
+        this.state.items.forEach((item, index) => { itemsList.push(<Item details={item} key={index} index={index} onChangeStatus={this.changeStatus} onClickClose={this.removeItem}/>) })
         return itemsList
     }
 
