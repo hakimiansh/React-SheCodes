@@ -3,13 +3,15 @@ import './App.css';
 import React, { Component } from 'react';
 import School from './School';
 import Form from './Form';
+import Http from './Http1';
+import Route1 from './route1';
 
-const studentsGrades = [
-  { name: "Naama", grade: "90", id: 0 },
-  { name: "David", grade: "80", id: 1 },
-  { name: "Lior", grade: "95", id: 2 },
-  { name: "Yaniv", grade: "100", id: 3 }
-]
+// const studentsGrades = [
+//   { name: "Naama", grade: "90", id: 0 },
+//   { name: "David", grade: "80", id: 1 },
+//   { name: "Lior", grade: "95", id: 2 },
+//   { name: "Yaniv", grade: "100", id: 3 }
+// ]
 
 // function App() {
 
@@ -53,11 +55,12 @@ class App extends Component {
         <input type="text" onChange={this.changeNameFromInput} value={this.state.name}/>
         <br /><br />
         <div>{this.state.name}</div> */}
-
-        <div><Form onChange={fields=>this.onChange(fields)}/>
+        <Http/>
+        <Route1/>
+        {/* <div><Form onChange={fields=>this.onChange(fields)}/>
         <p>
           {JSON.stringify(this.state.fields, null, 2)}
-        </p></div>
+        </p></div> */}
       </div>
     )
   }
